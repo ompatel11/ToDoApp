@@ -16,6 +16,119 @@
 #HOMESCREEN STARTS HERE           
             MDScreen:
                 name:"homescreen"
+                MDFloatLayout:
+                    orientation:"vertical"
+                    size_hint: 1,.8
+                    pos_hint:{'top':1}
+                    
+                    MDCard:
+                        orientation: "vertical"
+                        padding: "8dp"
+                        size_hint: .49,.38
+                        pos_hint: {"top": .87}
+                        radius: [50,50,50,50]
+
+                        MDLabel:
+                            text: "Title"
+                            theme_text_color: "Secondary"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                        MDSeparator:
+                            height: "1dp"
+
+                        MDLabel:
+                            text: "Body"
+                    MDCard:
+                        orientation: "vertical"
+                        padding: "8dp"
+                        size_hint: .49,.38
+                        pos_hint: {"top": .87,'right':1}
+                        radius: [50,50,50,50]
+
+                        MDLabel:
+                            text: "Title"
+                            theme_text_color: "Secondary"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                        MDSeparator:
+                            height: "1dp"
+
+                        MDLabel:
+                            text: "Body"
+                    MDCard:
+                        orientation: "vertical"
+                        padding: "8dp"
+                        size_hint: .49,.38
+                        pos_hint: {"top": .46,'right':1}
+                        radius: [50,50,50,50]
+
+                        MDLabel:
+                            text: "Title"
+                            theme_text_color: "Secondary"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                        MDSeparator:
+                            height: "1dp"
+
+                        MDLabel:
+                            text: "Body"
+                    MDCard:
+                        orientation: "vertical"
+                        padding: "8dp"
+                        size_hint: .49,.38
+                        pos_hint: {"top": .46}
+                        radius: [50,50,50,50]
+
+                        MDLabel:
+                            text: "Title"
+                            theme_text_color: "Secondary"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                        MDSeparator:
+                            height: "1dp"
+
+                        MDLabel:
+                            text: "Body"
+                    MDCard:
+                        orientation: "vertical"
+                        padding: "8dp"
+                        size_hint: .49,.28
+                        pos_hint: {"top": .05}
+                        radius: [50,50,50,50]
+
+                        MDLabel:
+                            text: "Title"
+                            theme_text_color: "Secondary"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                        MDSeparator:
+                            height: "1dp"
+
+                        MDLabel:
+                            text: "Body"
+                    MDCard:
+                        orientation: "vertical"
+                        padding: "8dp"
+                        size_hint: .49,.28
+                        pos_hint: {"top": .05,'right':1}
+                        radius: [50,50,50,50]
+
+                        MDLabel:
+                            text: "Title"
+                            theme_text_color: "Secondary"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                        MDSeparator:
+                            height: "1dp"
+
+                        MDLabel:
+                            text: "Body"
                 MDToolbar:
                     visible: True
                     id: toolbar_home_screen
@@ -31,35 +144,10 @@
                         user_font_size: "32sp"
                         on_release:
                             root.change_screen()
-                MDFloatLayout:
-                    orientation:"vertical"
-                    size_hint: 1,.8
-                    pos_hint:{'top':1}
-                    MDLabel:
-                        text:"Hellooo"
-                    ScrollView:
-                        MDList:
-                            id: md_list
+               
 
 
-                    # MDCard:
-                    #     orientation: "vertical"
-                    #     padding: "8dp"
-                    #     size_hint: None, None
-                    #     size: "280dp", "180dp"
-                    #     pos_hint: {"center_x": .5, "center_y": .5}
-
-                    #     MDLabel:
-                    #         text: "Title"
-                    #         theme_text_color: "Secondary"
-                    #         size_hint_y: None
-                    #         height: self.texture_size[1]
-
-                    #     MDSeparator:
-                    #         height: "1dp"
-
-                    #     MDLabel:
-                    #         text: "Body"
+                    
                     
 #HOMESCREEN ENDS HERE
 
