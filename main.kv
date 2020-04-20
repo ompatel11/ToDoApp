@@ -85,6 +85,11 @@
                     oreintation:"vertical"
                     pos_hint: {'top':.9}
                     size_hint: 1,.8
+                    MDFloatingActionButton:
+                        pos_hint: {'top':.1,'right':.95}
+                        icon: "content-save-all"
+                        md_bg_color: app.theme_cls.primary_color
+                        elevation: 10
                     MDTextField:
                         hint_text: "Title"
                         pos_hint: {'top':1}
@@ -93,6 +98,7 @@
                     ScrollView:
                         pos_hint: {'top':.88}
                         MDTextField:
+                            word_wrap: True
                             multiline: True    
                             hint_text: "Text"
                             # pos_hint: {'top':.8}    
