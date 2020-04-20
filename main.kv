@@ -19,14 +19,48 @@
                 MDToolbar:
                     visible: True
                     id: toolbar_home_screen
-                    title: "Title"
+                    title:"ToDo List"
                     pos_hint: {'top':1,'bottom':0}
                     radius: [0, 0, 0, 0]
                     md_bg_color: app.theme_cls.primary_color
-                    right_action_items: [["plus-circle", lambda x: root.scr_new_task()]]
-                     
-                MDLabel:
-                    text:"Hello"
+                    #right_action_items: [["plus-circle", lambda x: root.change_screen()]]
+        
+                    MDIconButton:
+                        icon: "plus-circle" 
+                        pos_hint: {'center_y':.5}
+                        user_font_size: "32sp"
+                        on_release:
+                            root.change_screen()
+                MDFloatLayout:
+                    orientation:"vertical"
+                    size_hint: 1,.8
+                    pos_hint:{'top':1}
+                    MDLabel:
+                        text:"Hellooo"
+                    ScrollView:
+                        MDList:
+                            id: md_list
+
+
+                    # MDCard:
+                    #     orientation: "vertical"
+                    #     padding: "8dp"
+                    #     size_hint: None, None
+                    #     size: "280dp", "180dp"
+                    #     pos_hint: {"center_x": .5, "center_y": .5}
+
+                    #     MDLabel:
+                    #         text: "Title"
+                    #         theme_text_color: "Secondary"
+                    #         size_hint_y: None
+                    #         height: self.texture_size[1]
+
+                    #     MDSeparator:
+                    #         height: "1dp"
+
+                    #     MDLabel:
+                    #         text: "Body"
+                    
 #HOMESCREEN ENDS HERE
 
 #NEW TASK SCREEN STARTS HERE            
@@ -39,9 +73,26 @@
                     pos_hint:{'top':1}
                     radius: [0, 0, 0, 0]
                     md_bg_color: app.theme_cls.primary_color
-                    right_action_items: [["arrow-left-circle", lambda x: root.scr_new_task()]]
-                    
-
-                MDLabel: 
-                    text:"New Task Window"
-                
+                    #right_action_items: [["arrow-left-circle", lambda x: root.change_screen()]]
+                    user_font_size: "64sp"
+                    MDIconButton:
+                        icon: "arrow-left-circle" 
+                        pos_hint: {'center_y':.5}
+                        user_font_size: "32sp"
+                        on_release:
+                            root.change_screen()
+                MDFloatLayout:
+                    oreintation:"vertical"
+                    pos_hint: {'top':.9}
+                    size_hint: 1,.8
+                    MDTextField:
+                        hint_text: "Title"
+                        pos_hint: {'top':1}
+                    MDSeparator:
+                        height: "1dp"
+                    ScrollView:
+                        pos_hint: {'top':.88}
+                        MDTextField:
+                            multiline: True    
+                            hint_text: "Text"
+                            # pos_hint: {'top':.8}    
