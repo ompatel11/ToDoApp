@@ -1,14 +1,16 @@
 #: import SwapTransition kivy.uix.screenmanager.SwapTransition
 
 <Dynamic_card>:
-    size_hint: .4,.5
-    pos_hint:{'top':.7,'right':1}
+    size_hint: 1,.5
+    pos_hint:{'top':.85,'left':.5}
     canvas.before:
         Color:
-            rgba: .5, .5, .5, 1
-        Line:
-            width: 2
-            rectangle: self.x, self.y, self.width, self.height 
+            rgba: 1, .75, 0, 1
+        RoundedRectangle:
+            radius: [20,20,20,20]
+            segments: [1, 2, 1, 2]
+            pos: self.x, self.y 
+            size:self.width, self.height    
             
     MDTextField:
         pos_hint:{'top':1,'right':.75}

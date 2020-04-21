@@ -14,11 +14,13 @@ from kivy.uix.scatter import Scatter
 from kivymd.uix.boxlayout import MDBoxLayout
 
 class Dynamic_card(MDFloatLayout):
-    pass
+    id = StringProperty()
 
 
 
 class calling_functions(MDScreen):
+    obj_id  = 0 
+    list_obj = []
     def __init__(self, *args, **kwargs):
         super(calling_functions, self).__init__(**kwargs)
         self.no_files = 0
@@ -37,16 +39,22 @@ class calling_functions(MDScreen):
             self.ids.screen_manager.current = "new_task"  
         else:
             self.ids.screen_manager.current = "homescreen"
-
+    def generate_id(self):
+        self.obj_id = self.obj_id + 1
+        return(self.obj_id)
     def create_task(self):
-        """Create object of Dynamic_card class and add it to the Main window """
+        """Create object of Dynamic_card class and add it to the Main window """ 
+        id_of_obj = self.generate_id()
         obj = Dynamic_card()
+        obj.id = str(id_of_obj)
+        self.list_obj.append(obj)
+        print(id_of_obj)
         self.ids.sl_home.add_widget(obj)
 
 class MainApp(MDApp):
     def build(self):
         self.theme_cls.primary_palette = "Amber"
-        self.theme_cls.theme_style = "Light"
+        self.theme_cls.theme_style = "Dark"
     
         return calling_functions()
     
