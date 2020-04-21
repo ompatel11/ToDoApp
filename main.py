@@ -21,7 +21,7 @@ class Dynamic_card(MDFloatLayout):
 class calling_functions(MDScreen):
     def __init__(self, *args, **kwargs):
         super(calling_functions, self).__init__(**kwargs)
-        self.no_files =1
+        self.no_files = 0
         obj = []
         for i in range(self.no_files):
             obj.append(Dynamic_card()) 
@@ -32,15 +32,21 @@ class calling_functions(MDScreen):
             print(o.id)
             j = j + 1   
     def change_screen(self):
+        """Change the display screen """
         if self.ids.screen_manager.current == "homescreen":
             self.ids.screen_manager.current = "new_task"  
         else:
             self.ids.screen_manager.current = "homescreen"
 
+    def create_task(self):
+        """Create object of Dynamic_card class and add it to the Main window """
+        obj = Dynamic_card()
+        self.ids.sl_home.add_widget(obj)
+
 class MainApp(MDApp):
     def build(self):
         self.theme_cls.primary_palette = "Amber"
-        self.theme_cls.theme_style = "Dark"
+        self.theme_cls.theme_style = "Light"
     
         return calling_functions()
     

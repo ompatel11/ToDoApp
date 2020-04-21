@@ -1,29 +1,38 @@
 #: import SwapTransition kivy.uix.screenmanager.SwapTransition
+
 <Dynamic_card>:
-    size_hint: .3,.4
-    pos_hint:{'top':.7}
+    size_hint: .4,.5
+    pos_hint:{'top':.7,'right':1}
+    canvas.before:
+        Color:
+            rgba: .5, .5, .5, 1
+        Line:
+            width: 2
+            rectangle: self.x, self.y, self.width, self.height 
+            
     MDTextField:
-        pos_hint:{'top':1}
+        pos_hint:{'top':1,'right':.75}
+        size_hint: .75,None
         hint_text: "Title"
         icon_right: "file-edit"
         icon_right_color: app.theme_cls.primary_color
     IconRightWidget:
         icon: "file-edit" 
         pos_hint:{'top':1,'right':1} 
+    IconRightWidget:
+        icon: "trash-can" 
+        pos_hint:{'top':1,'right':.9} 
     ScrollView:
-        pos_hint:{'top':.78}     
+        pos_hint:{'top':.8,'right':1}
+        size_hint: 1,.78     
         MDTextField:
-            pos_hint:{'top':.8}
+            
             hint_text: "Body"
             multiline: True 
+
 <calling_functions>:
     screen_manager:screen_manager
-    ScrollView:
-        
-        id: fl_textarea
-        # orientation:"vertical"
-        size_hint: 1,.7
-        pos_hint:{'top':.9}
+   
         
     NavigationLayout:
         
@@ -54,7 +63,7 @@
                         pos_hint: {'center_y':.5}
                         user_font_size: "32sp"
                         on_release:
-                            root.change_screen()
+                            root.create_task()
                
 
 
@@ -91,7 +100,10 @@
                         icon: "content-save-all"
                         md_bg_color: app.theme_cls.primary_color
                         elevation: 10
+                        on_release:
+                            root.create_task()
                     MDTextField:
+                        id: txt_create_title
                         hint_text: "Title"
                         pos_hint: {'top':1}
                     MDSeparator:
@@ -99,6 +111,7 @@
                     ScrollView:
                         pos_hint: {'top':.88}
                         MDTextField:
+                            id: txt_create_body
                             word_wrap: True
                             multiline: True    
                             hint_text: "Text"
