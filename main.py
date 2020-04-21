@@ -10,14 +10,27 @@ from kivymd.uix.floatlayout import MDFloatLayout
 from kivymd.uix.label import MDLabel
 from kivy.uix.scrollview import ScrollView
 from kivymd.uix.list import MDList
+from kivy.uix.scatter import Scatter
 
-class Cards():
+class Dynamic_card(Scatter):
     pass
+
+class Cards(Scatter):
+    pass
+
 class calling_functions(MDScreen):
     def __init__(self, *args, **kwargs):
         super(calling_functions, self).__init__(**kwargs)
         self.no_files = 5
-    
+        obj = []
+        for i in range(self.no_files):
+            obj.append(Dynamic_card()) 
+            self.ids.sl_home.add_widget(obj[i])
+        for o in obj:
+            j = 0 
+            o.id = f"{j}"
+            print(o.id)
+            j = j + 1
     def change_screen(self):
         if self.ids.screen_manager.current == "homescreen":
             self.ids.screen_manager.current = "new_task"  

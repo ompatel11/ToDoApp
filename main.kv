@@ -1,10 +1,33 @@
 #: import SwapTransition kivy.uix.screenmanager.SwapTransition
+<Dynamic_card>:
+    size_hint: .2,.48
+    MDCard:
+        id:card
+        orientation: "vertical"
+        padding: "8dp"
+        size_hint: None, None
+        size: "280dp", "180dp"
+        pos_hint: {"center_x": .5, "center_y": .5}
 
+        MDLabel:
+            text: "Title"
+            theme_text_color: "Secondary"
+            size_hint_y: None
+            height: self.texture_size[1]
+            MDIcon:
+                icon: "account"
+        MDSeparator:
+            height: "1dp"
+
+        MDLabel:
+            id: body
+            text: "Body"
 <calling_functions>:
     screen_manager:screen_manager
-    FloatLayout:
+    ScrollView:
+        
         id: fl_textarea
-        orientation:"vertical"
+        # orientation:"vertical"
         size_hint: 1,.7
         pos_hint:{'top':.9}
         
@@ -20,115 +43,118 @@
                     orientation:"vertical"
                     size_hint: 1,.8
                     pos_hint:{'top':1}
-                    
-                    MDCard:
-                        orientation: "vertical"
-                        padding: "8dp"
-                        size_hint: .49,.38
-                        pos_hint: {"top": .87}
-                        radius: [50,50,50,50]
+                   
+                    id: sl_home
+                    # MDCard:
+                    #     orientation: "vertical"
+                    #     padding: "8dp"
+                    #     size_hint: .49,.38
+                    #     pos_hint: {"top": .87}
+                    #     radius: [50,50,50,50]
 
-                        MDLabel:
-                            text: "Title"
-                            theme_text_color: "Secondary"
-                            size_hint_y: None
-                            height: self.texture_size[1]
+                    #     MDLabel:
+                    #         text: "Title"
+                    #         theme_text_color: "Secondary"
+                    #         size_hint_y: None
+                    #         height: self.texture_size[1]
 
-                        MDSeparator:
-                            height: "1dp"
+                    #     MDSeparator:
+                    #         height: "1dp"
 
-                        MDLabel:
-                            text: "Body"
-                    MDCard:
-                        orientation: "vertical"
-                        padding: "8dp"
-                        size_hint: .49,.38
-                        pos_hint: {"top": .87,'right':1}
-                        radius: [50,50,50,50]
+                    #     MDLabel:
+                    #         text: "Body"
+                    # MDCard:
+                    #     orientation: "vertical"
+                    #     padding: "8dp"
+                    #     size_hint: .49,.38
+                    #     pos_hint: {"top": .87,'right':1}
+                    #     radius: [50,50,50,50]
 
-                        MDLabel:
-                            text: "Title"
-                            theme_text_color: "Secondary"
-                            size_hint_y: None
-                            height: self.texture_size[1]
+                    #     MDLabel:
+                    #         text: "Title"
+                    #         theme_text_color: "Secondary"
+                    #         size_hint_y: None
+                    #         height: self.texture_size[1]
 
-                        MDSeparator:
-                            height: "1dp"
+                    #     MDSeparator:
+                    #         height: "1dp"
 
-                        MDLabel:
-                            text: "Body"
-                    MDCard:
-                        orientation: "vertical"
-                        padding: "8dp"
-                        size_hint: .49,.38
-                        pos_hint: {"top": .46,'right':1}
-                        radius: [50,50,50,50]
+                    #     MDLabel:
+                    #         text: "Body"
+                    # MDCard:
+                    #     orientation: "vertical"
+                    #     padding: "8dp"
+                    #     size_hint: .49,.38
+                    #     pos_hint: {"top": .46,'right':1}
+                    #     radius: [50,50,50,50]
 
-                        MDLabel:
-                            text: "Title"
-                            theme_text_color: "Secondary"
-                            size_hint_y: None
-                            height: self.texture_size[1]
+                    #     MDLabel:
+                    #         text: "Title"
+                    #         theme_text_color: "Secondary"
+                    #         size_hint_y: None
+                    #         height: self.texture_size[1]
 
-                        MDSeparator:
-                            height: "1dp"
+                    #     MDSeparator:
+                    #         height: "1dp"
 
-                        MDLabel:
-                            text: "Body"
-                    MDCard:
-                        orientation: "vertical"
-                        padding: "8dp"
-                        size_hint: .49,.38
-                        pos_hint: {"top": .46}
-                        radius: [50,50,50,50]
+                    #     MDLabel:
+                    #         text: "Body"
+                    # MDCard:
+                    #     orientation: "vertical"
+                    #     padding: "8dp"
+                    #     size_hint: .49,.38
+                    #     pos_hint: {"top": .46}
+                    #     radius: [50,50,50,50]
 
-                        MDLabel:
-                            text: "Title"
-                            theme_text_color: "Secondary"
-                            size_hint_y: None
-                            height: self.texture_size[1]
+                    #     MDLabel:
+                    #         text: "Title"
+                    #         theme_text_color: "Secondary"
+                    #         size_hint_y: None
+                    #         height: self.texture_size[1]
 
-                        MDSeparator:
-                            height: "1dp"
+                    #     MDSeparator:
+                    #         height: "1dp"
 
-                        MDLabel:
-                            text: "Body"
-                    MDCard:
-                        orientation: "vertical"
-                        padding: "8dp"
-                        size_hint: .49,.28
-                        pos_hint: {"top": .05}
-                        radius: [50,50,50,50]
+                    #     MDLabel:
+                    #         text: "Body"
+                    # MDCard:
+                    #     orientation: "vertical"
+                    #     padding: "8dp"
+                    #     size_hint: .49,.28
+                    #     pos_hint: {"top": .05}
+                    #     radius: [50,50,50,50]
 
-                        MDLabel:
-                            text: "Title"
-                            theme_text_color: "Secondary"
-                            size_hint_y: None
-                            height: self.texture_size[1]
+                    #     MDLabel:
+                    #         text: "Title"
+                    #         theme_text_color: "Secondary"
+                    #         size_hint_y: None
+                    #         height: self.texture_size[1]
 
-                        MDSeparator:
-                            height: "1dp"
+                    #     MDSeparator:
+                    #         height: "1dp"
 
-                        MDLabel:
-                            text: "Body"
-                    MDCard:
-                        orientation: "vertical"
-                        padding: "8dp"
-                        size_hint: .49,.28
-                        pos_hint: {"top": .05,'right':1}
-                        radius: [50,50,50,50]
+                    #     MDLabel:
+                    #         text: "Body"
+                    # MDCard:
+                    #     orientation: "vertical"
+                    #     padding: "8dp"
+                    #     size_hint: .49,None
+                    #     height: lbl.height *4
+                    #     pos_hint: {"top": .05,'right':1}
+                    #     radius: [50,50,50,50]
 
-                        MDLabel:
-                            text: "Title"
-                            theme_text_color: "Secondary"
-                            size_hint_y: None
-                            height: self.texture_size[1]
+                    #     MDLabel:
+                    #         id: lbl
+                    #         text: "Title"
+                    #         theme_text_color: "Secondary"
+                    #         size_hint_y: None
+                    #         height: self.texture_size[1]
 
-                        MDSeparator:
-                            height: "1dp"
+                    #     MDSeparator:
+                    #         height: "1dp"
 
-                        MDLabel:
-                            text: "Body"
+                    #     MDLabel:
+                    #         text: "Body"
                 MDToolbar:
                     visible: True
                     id: toolbar_home_screen
@@ -169,6 +195,8 @@
                         user_font_size: "32sp"
                         on_release:
                             root.change_screen()
+                
+                    
                 MDFloatLayout:
                     oreintation:"vertical"
                     pos_hint: {'top':.9}
