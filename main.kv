@@ -3,6 +3,7 @@
 <Dynamic_card>:
     size_hint: 1,.5
     pos_hint:{'top':.85,'left':.5}
+    
     canvas.before:
         Color:
             rgba: 1, .75, 0, 1
@@ -11,24 +12,33 @@
             segments: [1, 2, 1, 2]
             pos: self.x, self.y 
             size:self.width, self.height    
-            
+            Color:
+                rgba: .5, .5, .5, 1
+            Line:
+                width: 2
+                rectangle: self.x, self.y, self.width, self.height
     MDTextField:
         pos_hint:{'top':1,'right':.75}
-        size_hint: .75,None
+        size_hint: .65,None
         hint_text: "Title"
         icon_right: "file-edit"
         icon_right_color: app.theme_cls.primary_color
+        color_mode: 'custom'
+        line_color_focus: 0, 0, 0, 1
     IconRightWidget:
         icon: "file-edit" 
         pos_hint:{'top':1,'right':1} 
     IconRightWidget:
         icon: "trash-can" 
         pos_hint:{'top':1,'right':.9} 
+        
     ScrollView:
         pos_hint:{'top':.8,'right':1}
         size_hint: 1,.78     
         MDTextField:
-            
+            color_mode: 'custom'
+            size_hint: .65,None
+            line_color_focus: 0, 0, 0, 1
             hint_text: "Body"
             multiline: True 
 
@@ -47,10 +57,14 @@
                 MDFloatLayout:
                     orientation:"vertical"
                     size_hint: 1,.8
-                    pos_hint:{'top':1}
-                   
-                    id: sl_home
-                    
+                    pos_hint:{'top':.8}
+                    ScrollView:
+                        pos_hint:{'top':1}
+                        MDList:
+                            padding:(0,0,0,0)
+                            id: sl_home
+
+
                 MDToolbar:
                     visible: True
                     id: toolbar_home_screen

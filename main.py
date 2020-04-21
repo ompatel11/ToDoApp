@@ -30,7 +30,7 @@ class calling_functions(MDScreen):
             self.ids.sl_home.add_widget(obj[i])
         for o in obj:
             j = 0 
-            o.id = f"{j}"
+            o.id = f"{j}"   
             print(o.id)
             j = j + 1   
     def change_screen(self):
@@ -49,7 +49,10 @@ class calling_functions(MDScreen):
         obj.id = str(id_of_obj)
         self.list_obj.append(obj)
         print(id_of_obj)
+        for i in self.list_obj:
+            i.id=str(id_of_obj)
         self.ids.sl_home.add_widget(obj)
+        
 
 class MainApp(MDApp):
     def build(self):
