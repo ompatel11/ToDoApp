@@ -48,7 +48,7 @@ class calling_functions(MDScreen):
         obj = Dynamic_card()
         obj.id = str(id_of_obj)
         self.list_obj.append(obj)
-        print(id_of_obj)
+        print(obj.id)
         for i in self.list_obj:
             i.id=str(id_of_obj)
         self.ids.sl_home.add_widget(obj)
