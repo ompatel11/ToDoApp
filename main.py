@@ -51,7 +51,10 @@ class calling_functions(MDScreen):
         obj = Dynamic_card()
         obj.id = str(id_of_obj)
         print(self.ids.txt_create_body.height)
-        obj.height = self.ids.txt_create_body.height
+        if self.ids.txt_create_body.height <= 100:
+            obj.height = 110
+        else:
+            obj.height = self.ids.txt_create_body.height
         print(obj.height,obj.width)
         # obj.ids.lbl_title.text = self.ids.txt_create_title.text
         obj.ids.lbl_body.text = self.ids.txt_create_body.text
