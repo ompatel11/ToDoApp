@@ -5,23 +5,22 @@
     pos_hint:{'top':.85,'left':.5}
     
     canvas.before:
-        Color:
-            rgba: 0, 0, 0, 1
-        Line:
-            width: 3
-            rectangle: self.x , self.y , self.width, self.height
+        # Color:
+        #     rgba: 0, 0, 0, 1
+        # Line:
+        #     width: 3
+        #     rectangle: self.x , self.y , self.width, self.height
 
         Color:
             rgba: 0, .5, .5, 1
         RoundedRectangle:
-
             pos: self.x, self.y 
             size:self.width, self.height    
             
     MDLabel:
         disabled: True
         id: lbl_title
-        pos_hint:{'top':1}
+        pos_hint:{'top':1,'right':.66}
         size_hint: .65,None
         text: "Title"
         icon_right: "file-edit"
@@ -108,6 +107,8 @@
                         id: txt_create_title
                         hint_text: "Title"
                         pos_hint: {'top':1}
+                        color_mode: 'custom'
+                        line_color_focus: 1,1,1,1
                     MDSeparator:
                         height: "1dp"
                     MDFlatButton:
@@ -126,6 +127,8 @@
                             word_wrap: True
                             multiline: True    
                             hint_text: "Text"
+                            color_mode: 'custom'
+                            line_color_focus: 1,1,1,1
                         # pos_hint: {'top':.8}
                     
                 MDToolbar:
