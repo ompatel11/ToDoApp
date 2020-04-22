@@ -1,7 +1,7 @@
 #: import SwapTransition kivy.uix.screenmanager.SwapTransition
 
 <Dynamic_card>:
-    size_hint: .3,.5
+    size_hint: .3,None
     pos_hint:{'top':.85,'left':.5}
     
     canvas.before:
@@ -64,10 +64,10 @@
                 #     size_hint: 1,.8
                     
                 ScrollView:
-                    pos_hint:{'top':.8,'right':1}
-                    
+                    pos_hint:{'top':.92,'left':.5}
                     StackLayout:
-                        padding:(0, 0, 0, 0)
+                        orientatio: "lr-tb"
+                        padding:(10, 20, 0, 0)
                         id: sl_home
 
 

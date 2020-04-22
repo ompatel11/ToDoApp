@@ -51,11 +51,12 @@ class calling_functions(MDScreen):
         obj = Dynamic_card()
         obj.id = str(id_of_obj)
         print(self.ids.txt_create_body.height)
+        obj.height = self.ids.txt_create_body.height
         print(obj.height,obj.width)
-        obj.ids.lbl_title.text = self.ids.txt_create_title.text
+        # obj.ids.lbl_title.text = self.ids.txt_create_title.text
         obj.ids.lbl_body.text = self.ids.txt_create_body.text
         self.list_obj.append(obj)
-      
+        
         print(obj.id)
         for i in self.list_obj:
             i.id=str(id_of_obj)
