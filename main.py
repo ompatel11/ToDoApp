@@ -37,13 +37,15 @@ class calling_functions(MDScreen):
         """Change the display screen """
         if self.ids.screen_manager.current == "homescreen":
             self.ids.screen_manager.current = "new_task"  
-        else:
+        elif self.ids.screen_manager.current == "new_task":
             self.ids.screen_manager.current = "homescreen"
+                
     def generate_id(self):
         self.obj_id = self.obj_id + 1
         return(self.obj_id)
     def create_task(self):
         """Create object of Dynamic_card class and add it to the Main window """ 
+        self.ids.screen_manager.current = "homescreen"
         id_of_obj = self.generate_id()
         obj = Dynamic_card()
         obj.id = str(id_of_obj)

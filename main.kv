@@ -18,10 +18,10 @@
         #     pos: self.x, self.y 
         #     size:self.width, self.height    
             
-    MDTextField:
+    MDLabel:
         pos_hint:{'top':1,'right':.75}
         size_hint: .65,None
-        hint_text: "Title"
+        text: "Title"
         icon_right: "file-edit"
         icon_right_color: app.theme_cls.primary_color
         color_mode: 'custom'
@@ -36,11 +36,12 @@
     ScrollView:
         pos_hint:{'top':.8,'right':1}
         size_hint: 1,.78     
-        MDTextField:
+        MDLabel:
             color_mode: 'custom'
             size_hint: .65,None
+            pos_hint:{'right':.2}
             line_color_focus: 0, 0, 0, 1
-            hint_text: "Body"
+            text: "Body"
             multiline: True 
 
 <calling_functions>:
@@ -81,7 +82,7 @@
                         pos_hint: {'center_y':.5}
                         user_font_size: "32sp"
                         on_release:
-                            root.create_task()
+                            root.change_screen()
                
 
 
@@ -92,6 +93,36 @@
 #NEW TASK SCREEN STARTS HERE            
             MDScreen:
                 name: "new_task"
+                    
+                MDFloatLayout:
+                    oreintation:"vertical"
+                    pos_hint: {'top':.9}
+                    size_hint: 1,1
+                    
+                    MDTextField:
+                        id: txt_create_title
+                        hint_text: "Title"
+                        pos_hint: {'top':1}
+                    MDSeparator:
+                        height: "1dp"
+                    MDFlatButton:
+                        text: "Save"
+                        size_hint: 1,None
+                        md_bg_color: app.theme_cls.primary_color
+                        pos_hint:{'bottom':1}
+                        on_release:
+                            root.create_task()
+                    ScrollView:
+                        pos_hint: {'top':.88}
+                        size_hint: 1,.7
+                        MDTextField:
+                            disabled: False
+                            id: txt_create_body
+                            word_wrap: True
+                            multiline: True    
+                            hint_text: "Text"
+                        # pos_hint: {'top':.8}
+                    
                 MDToolbar:
                     visible: True
                     id: toolbar_home_screen
@@ -109,28 +140,3 @@
                             root.change_screen()
                 
                     
-                MDFloatLayout:
-                    oreintation:"vertical"
-                    pos_hint: {'top':.9}
-                    size_hint: 1,.8
-                    MDFloatingActionButton:
-                        pos_hint: {'top':.1,'right':.95}
-                        icon: "content-save-all"
-                        md_bg_color: app.theme_cls.primary_color
-                        elevation: 10
-                        on_release:
-                            root.create_task()
-                    MDTextField:
-                        id: txt_create_title
-                        hint_text: "Title"
-                        pos_hint: {'top':1}
-                    MDSeparator:
-                        height: "1dp"
-                    ScrollView:
-                        pos_hint: {'top':.88}
-                        MDTextField:
-                            id: txt_create_body
-                            word_wrap: True
-                            multiline: True    
-                            hint_text: "Text"
-                            # pos_hint: {'top':.8}    
