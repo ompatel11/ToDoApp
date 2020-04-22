@@ -46,10 +46,15 @@ class calling_functions(MDScreen):
     def create_task(self):
         """Create object of Dynamic_card class and add it to the Main window """ 
         self.ids.screen_manager.current = "homescreen"
-        id_of_obj = self.generate_id()
+        id_of_obj = "obj_"+ str(self.generate_id())
         obj = Dynamic_card()
         obj.id = str(id_of_obj)
+        print(self.ids.txt_create_body.height)
+        print(obj.height,obj.width)
+        obj.ids.lbl_title.text = self.ids.txt_create_title.text
+        obj.ids.lbl_body.text = self.ids.txt_create_body.text
         self.list_obj.append(obj)
+      
         print(obj.id)
         for i in self.list_obj:
             i.id=str(id_of_obj)

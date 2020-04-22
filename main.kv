@@ -1,14 +1,14 @@
 #: import SwapTransition kivy.uix.screenmanager.SwapTransition
 
 <Dynamic_card>:
-    size_hint: 1,.5
+    size_hint: .3,.5
     pos_hint:{'top':.85,'left':.5}
     
     canvas.before:
         Color:
             rgba: .5, .5, .5, 1
         Line:
-            width: 5
+            width: 3
             rectangle: self.x, self.y, self.width, self.height
 
         # Color:
@@ -18,7 +18,9 @@
         #     pos: self.x, self.y 
         #     size:self.width, self.height    
             
-    MDLabel:
+    MDTextField:
+        disabled: True
+        id: lbl_title
         pos_hint:{'top':1,'right':.75}
         size_hint: .65,None
         text: "Title"
@@ -34,11 +36,13 @@
         pos_hint:{'top':1,'right':.9} 
         
     ScrollView:
-        pos_hint:{'top':.8,'right':1}
-        size_hint: 1,.78     
-        MDLabel:
+        pos_hint:{'top':.75,'right':.95}
+        size_hint: .9,.7     
+        MDTextField:
+            disabled: True
+            id: lbl_body
             color_mode: 'custom'
-            size_hint: .65,None
+            size_hint: 1,None
             pos_hint:{'right':.2}
             line_color_focus: 0, 0, 0, 1
             text: "Body"
@@ -61,11 +65,12 @@
                 #     size_hint: 1,.8
                     
                 ScrollView:
-                    pos_hint:{'top':.8}
+                    pos_hint:{'top':.8,'right':1}
                     
                     StackLayout:
                         padding:(0, 0, 0, 0)
                         id: sl_home
+
 
 
                 MDToolbar:
