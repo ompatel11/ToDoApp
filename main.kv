@@ -8,12 +8,13 @@
         Color:
             rgba: .5, .5, .5, 1
         Line:
-            width: 2
+            width: 5
             rectangle: self.x, self.y, self.width, self.height
+
         # Color:
         #     rgba: 1, .75, 0, 1
         # RoundedRectangle:
-        #     radius: [40,40,40,40]
+
         #     pos: self.x, self.y 
         #     size:self.width, self.height    
             
@@ -54,16 +55,16 @@
 #HOMESCREEN STARTS HERE           
             MDScreen:
                 name:"homescreen"
-                MDFloatLayout:
-                    orientation:"vertical"
-                    size_hint: 1,.8
+                # MDFloatLayout:
+                #     orientation:"vertical"
+                #     size_hint: 1,.8
+                    
+                ScrollView:
                     pos_hint:{'top':.8}
-                    ScrollView:
-                        pos_hint:{'top':1}
-                        
-                        MDList:
-                            padding:(0,10,0,0)
-                            id: sl_home
+                    
+                    StackLayout:
+                        padding:(0, 0, 0, 0)
+                        id: sl_home
 
 
                 MDToolbar:
@@ -71,7 +72,7 @@
                     id: toolbar_home_screen
                     title:"ToDo List"
                     pos_hint: {'top':1,'bottom':0}
-                    radius: [0, 0, 0, 0]
+                    radius: [0, 0, 30, 0]
                     md_bg_color: app.theme_cls.primary_color
                     #right_action_items: [["plus-circle", lambda x: root.change_screen()]]
         
@@ -96,7 +97,7 @@
                     id: toolbar_home_screen
                     title: "Title"
                     pos_hint:{'top':1}
-                    radius: [0, 0, 0, 0]
+                    radius: [0, 0, 30, 0]
                     md_bg_color: app.theme_cls.primary_color
                     #right_action_items: [["arrow-left-circle", lambda x: root.change_screen()]]
                     user_font_size: "64sp"
