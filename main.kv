@@ -6,22 +6,22 @@
     
     canvas.before:
         Color:
-            rgba: .5, .5, .5, 1
+            rgba: 0, 0, 0, 1
         Line:
             width: 3
-            rectangle: self.x, self.y, self.width, self.height
+            rectangle: self.x , self.y , self.width, self.height
 
-        # Color:
-        #     rgba: 1, .75, 0, 1
-        # RoundedRectangle:
+        Color:
+            rgba: 0, .5, .5, 1
+        RoundedRectangle:
 
-        #     pos: self.x, self.y 
-        #     size:self.width, self.height    
+            pos: self.x, self.y 
+            size:self.width, self.height    
             
-    MDTextField:
+    MDLabel:
         disabled: True
         id: lbl_title
-        pos_hint:{'top':1,'right':.75}
+        pos_hint:{'top':1}
         size_hint: .65,None
         text: "Title"
         icon_right: "file-edit"

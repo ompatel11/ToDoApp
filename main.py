@@ -63,7 +63,7 @@ class calling_functions(MDScreen):
 
 class MainApp(MDApp):
     def build(self):
-        self.theme_cls.primary_palette = "Amber"
+        self.theme_cls.primary_palette = "Teal"
         self.theme_cls.theme_style = "Dark"
     
         return calling_functions()
