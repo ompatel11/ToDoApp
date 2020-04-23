@@ -3,19 +3,18 @@
 <Dynamic_card>:
     size_hint: .3,None
     pos_hint:{'top':.85,'left':.5}
-    padding:(0,0,10,20)
     canvas.before:
-        # Color:
-        #     rgba: 0, 0, 0, 1
-        # Line:
-        #     width: 3
-        #     rectangle: self.x , self.y , self.width, self.height
-
         Color:
-            rgba: 0, .5, .5, 1
-        RoundedRectangle:
-            pos: self.x, self.y 
-            size:self.width, self.height    
+            rgba: 1, 1, 1, 1
+        Line:
+            width: 3
+            rectangle: self.x , self.y , self.width, self.height
+
+        # Color:
+        #     rgba: 0, .5, .5, 1
+        # RoundedRectangle:
+        #     pos: self.x, self.y 
+        #     size:self.width, self.height    
             
     MDLabel:
         disabled: True
@@ -35,11 +34,11 @@
         pos_hint:{'top':1,'right':.9} 
         
     ScrollView:
-        pos_hint:{'top':.65,'right':.95}
-        size_hint: .9,.6    
+        id: sview_s
+        pos_hint:{'top':.8,'right':.95}
+        size_hint: .9,.8   
         
         MDTextField:
-            
             disabled: True
             id: lbl_body
             color_mode: 'custom'
@@ -61,15 +60,15 @@
 #HOMESCREEN STARTS HERE           
             MDScreen:
                 name:"homescreen"
-                # MDFloatLayout:
-                #     orientation:"vertical"
-                #     size_hint: 1,.8
-                    
+                MDFloatLayout:
+                    orientation:"vertical"
+                    size_hint: 1,.8
                 ScrollView:
                     pos_hint:{'top':.92,'left':.5}
-                    StackLayout:
+                    
+                    MDList:
                         orientatio: "lr-tb"
-                        padding:(10, 20, 0, 0)
+                        padding:(10, 20, 10, 10)
                         id: sl_home
 
 
@@ -107,8 +106,11 @@
                     
                     MDTextField:
                         id: txt_create_title
+                        required: True
+                        font_size: 28
+                        bold: True
                         hint_text: "Title"
-                        pos_hint: {'top':1}
+                        pos_hint: {'top':.97}
                         color_mode: 'custom'
                         line_color_focus: 1,1,1,1
                     MDSeparator:
@@ -121,9 +123,10 @@
                         on_release:
                             root.create_task()
                     ScrollView:
-                        pos_hint: {'top':.88}
-                        size_hint: 1,.7
+                        pos_hint: {'top':.82}
+                        size_hint: 1,.64
                         MDTextField:
+                            font_size: 28
                             disabled: False
                             id: txt_create_body
                             word_wrap: True

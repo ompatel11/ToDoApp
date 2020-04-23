@@ -53,10 +53,12 @@ class calling_functions(MDScreen):
         print(self.ids.txt_create_body.height)
         if self.ids.txt_create_body.height <= 100:
             obj.height = 110
+        elif self.ids.txt_create_body.height >=400:
+            obj.height = 380
         else:
             obj.height = self.ids.txt_create_body.height
         print(obj.height,obj.width)
-        # obj.ids.lbl_title.text = self.ids.txt_create_title.text
+        obj.ids.lbl_title.text = self.ids.txt_create_title.text
         obj.ids.lbl_body.text = self.ids.txt_create_body.text
         self.list_obj.append(obj)
         
