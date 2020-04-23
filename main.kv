@@ -27,12 +27,16 @@
         color_mode: 'custom'
         line_color_focus: 0, 0, 0, 1
     IconRightWidget:
+        id: edit_icon
         icon: "file-edit" 
         pos_hint:{'top':1,'right':1}
         padding:(10,0,0,0) 
     IconRightWidget:
+        id: trash_icon
         icon: "trash-can" 
-        pos_hint:{'top':1,'right':.9} 
+        pos_hint:{'top':1,'right':.9}
+        on_release:
+            root.delete_task() 
         
     ScrollView:
         id: sview_s
@@ -50,6 +54,8 @@
             multiline: True 
 
 <calling_functions>:
+    name: 'main_screen'
+    id: main_id
     screen_manager:screen_manager
    
         
@@ -67,7 +73,7 @@
                 ScrollView:
                     pos_hint:{'top':.92,'left':.5}
                     
-                    MDList:
+                    StackLayout:
                         id: sl_home
                         orientatio: "lr-tb"
                         padding:(10, 20, 10, 10)

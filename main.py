@@ -18,11 +18,18 @@ from kivymd.uix.tab import MDTabsBase
 
 class Dynamic_card(MDFloatLayout):
     id = StringProperty()
+    
 
+    def delete_task(self):
+        print(obj)
+        print(main_obj)
+        main_obj.ids.sl_home.remove_widget(list_obj.pop())
+        # obj.ids.sl_home.remove_widget(self)
 
 
 class calling_functions(MDScreen):
     obj_id  = 0 
+    global list_obj 
     list_obj = []
     def __init__(self, *args, **kwargs):
         super(calling_functions, self).__init__(**kwargs)
@@ -36,6 +43,7 @@ class calling_functions(MDScreen):
             o.id = f"{j}"   
             print(o.id)
             j = j + 1   
+    
     def change_screen(self):
         """Change the display screen """
         if self.ids.screen_manager.current == "homescreen":
@@ -52,9 +60,9 @@ class calling_functions(MDScreen):
         
         self.ids.screen_manager.current = "homescreen"
         id_of_obj = "obj_"+ str(self.generate_id())
+        global obj 
         obj = Dynamic_card()
         obj.id = str(id_of_obj)
-        print(self.ids.txt_create_body.height)
         obj.size_hint = [.5,None]
         if self.ids.txt_create_body.height <= 100:
             obj.height = 110
@@ -62,25 +70,25 @@ class calling_functions(MDScreen):
             obj.height = 360
         else:
             obj.height = self.ids.txt_create_body.height
-        print(obj.height,obj.width)
-        
         obj.ids.lbl_title.text = self.ids.txt_create_title.text
         obj.ids.lbl_body.text = self.ids.txt_create_body.text
-        self.list_obj.append(obj)
-        
+        list_obj.append(obj)
         print(obj.id)
-        for i in self.list_obj:
+        for i in list_obj:
             i.id=str(id_of_obj)
         self.ids.sl_home.add_widget(obj)
         self.ids.txt_create_body.text = " "
         self.ids.txt_create_title.text = " "
+        
+   
 
 class MainApp(MDApp):
     def build(self):
         self.theme_cls.primary_palette = "Teal"
         self.theme_cls.theme_style = "Dark"
-    
-        return calling_functions()
+        global main_obj
+        main_obj = calling_functions()
+        return main_obj
     
     
            
