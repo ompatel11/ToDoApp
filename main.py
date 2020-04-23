@@ -12,6 +12,9 @@ from kivy.uix.scrollview import ScrollView
 from kivymd.uix.list import MDList
 from kivy.uix.scatter import Scatter
 from kivymd.uix.boxlayout import MDBoxLayout
+from kivymd.uix.tab import MDTabsBase
+
+
 
 class Dynamic_card(MDFloatLayout):
     id = StringProperty()
@@ -43,6 +46,7 @@ class calling_functions(MDScreen):
     def generate_id(self):
         self.obj_id = self.obj_id + 1
         return(self.obj_id)
+
     def create_task(self):
         """Create object of Dynamic_card class and add it to the Main window """ 
         
@@ -51,13 +55,15 @@ class calling_functions(MDScreen):
         obj = Dynamic_card()
         obj.id = str(id_of_obj)
         print(self.ids.txt_create_body.height)
+        obj.size_hint = [.5,None]
         if self.ids.txt_create_body.height <= 100:
             obj.height = 110
         elif self.ids.txt_create_body.height >=400:
-            obj.height = 380
+            obj.height = 360
         else:
             obj.height = self.ids.txt_create_body.height
         print(obj.height,obj.width)
+        
         obj.ids.lbl_title.text = self.ids.txt_create_title.text
         obj.ids.lbl_body.text = self.ids.txt_create_body.text
         self.list_obj.append(obj)

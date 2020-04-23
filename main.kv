@@ -1,7 +1,7 @@
 #: import SwapTransition kivy.uix.screenmanager.SwapTransition
 
 <Dynamic_card>:
-    size_hint: .3,None
+    size_hint: None,None
     pos_hint:{'top':.85,'left':.5}
     canvas.before:
         Color:
@@ -28,14 +28,15 @@
         line_color_focus: 0, 0, 0, 1
     IconRightWidget:
         icon: "file-edit" 
-        pos_hint:{'top':1,'right':1} 
+        pos_hint:{'top':1,'right':1}
+        padding:(10,0,0,0) 
     IconRightWidget:
         icon: "trash-can" 
         pos_hint:{'top':1,'right':.9} 
         
     ScrollView:
         id: sview_s
-        pos_hint:{'top':.8,'right':.95}
+        pos_hint:{'top':.8,'right':.98}
         size_hint: .9,.8   
         
         MDTextField:
