@@ -32,7 +32,6 @@
         pos_hint:{'top':1,'right':1}
         padding:(10,0,0,0) 
     IconRightWidget:
-        id: trash_icon
         icon: "trash-can" 
         pos_hint:{'top':1,'right':.9}
         on_release:
@@ -67,15 +66,13 @@
 #HOMESCREEN STARTS HERE           
             MDScreen:
                 name:"homescreen"
-                MDFloatLayout:
-                    orientation:"vertical"
-                    size_hint: 1,.8
+                
                 ScrollView:
                     pos_hint:{'top':.92,'left':.5}
                     
-                    StackLayout:
+                    MDList:
                         id: sl_home
-                        orientatio: "lr-tb"
+                        # orientation: "lr-tb"
                         padding:(10, 20, 10, 10)
                         
 

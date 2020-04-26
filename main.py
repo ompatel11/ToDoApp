@@ -22,10 +22,9 @@ class Dynamic_card(MDFloatLayout):
 
     def delete_task(self):
         print(obj)
-        print(main_obj)
-        main_obj.ids.sl_home.remove_widget(list_obj.pop())
-        # obj.ids.sl_home.remove_widget(self)
-
+        print(main_obj.ids.sl_home.ids)
+        # main_obj.ids.sl_home.remove_widget(obj)        
+        main_obj.ids.sl_home.remove_widget(obj)
 
 class calling_functions(MDScreen):
     obj_id  = 0 
@@ -65,9 +64,9 @@ class calling_functions(MDScreen):
         obj.id = str(id_of_obj)
         obj.size_hint = [.5,None]
         if self.ids.txt_create_body.height <= 100:
-            obj.height = 110
+            obj.size_hint = [.5,.1]
         elif self.ids.txt_create_body.height >=400:
-            obj.height = 360
+            obj.size_hint = [.5,.5]
         else:
             obj.height = self.ids.txt_create_body.height
         obj.ids.lbl_title.text = self.ids.txt_create_title.text
@@ -79,8 +78,7 @@ class calling_functions(MDScreen):
         self.ids.sl_home.add_widget(obj)
         self.ids.txt_create_body.text = " "
         self.ids.txt_create_title.text = " "
-        
-   
+
 
 class MainApp(MDApp):
     def build(self):
