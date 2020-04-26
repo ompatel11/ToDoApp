@@ -75,11 +75,19 @@ class calling_functions(MDScreen):
         print(obj.id)
         for i in list_obj:
             i.id=str(id_of_obj)
+        
         self.ids.sl_home.add_widget(obj)
+        
+        self.file_name = self.ids.txt_create_title.text
+        self.file_content = self.ids.txt_create_body.text
+        
+        f  = open('Tasks/'+ self.ids.txt_create_title.text,'w+')
+        f.write(self.ids.txt_create_body.text)
+        print(f.tell)
+
+        
         self.ids.txt_create_body.text = " "
         self.ids.txt_create_title.text = " "
-
-
 class MainApp(MDApp):
     def build(self):
         self.theme_cls.primary_palette = "Teal"
