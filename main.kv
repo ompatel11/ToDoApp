@@ -1,7 +1,7 @@
 #: import SwapTransition kivy.uix.screenmanager.SwapTransition
 
 <Dynamic_card>:
-    size_hint: None,None
+    size_hint: .5,.5
     pos_hint:{'top':.85,'left':.5}
     canvas.before:
         Color:
@@ -29,11 +29,11 @@
     IconRightWidget:
         id: edit_icon
         icon: "file-edit" 
-        pos_hint:{'top':1,'right':1}
+        pos_hint:{'top':1,'right':.9}
         padding:(10,0,0,0) 
     IconRightWidget:
         icon: "trash-can" 
-        pos_hint:{'top':1,'right':.9}
+        pos_hint:{'top':1,'right':.8}
         on_release:
             root.delete_task() 
         
@@ -73,7 +73,8 @@
                     MDList:
                         id: sl_home
                         # orientation: "lr-tb"
-                        padding:(10, 20, 10, 10)
+                        size_hint: 1,1
+                        padding:(20, 20, 20, 20)
                         
 
 
@@ -112,7 +113,7 @@
                     MDTextField:
                         id: txt_create_title
                         required: True
-                        font_size: 28
+                        font_size: 40
                         bold: True
                         hint_text: "Title"
                         pos_hint: {'top':.97}
@@ -131,7 +132,7 @@
                         pos_hint: {'top':.82}
                         size_hint: 1,.64
                         MDTextField:
-                            font_size: 28
+                            font_size: 40
                             disabled: False
                             id: txt_create_body
                             word_wrap: True

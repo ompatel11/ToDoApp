@@ -13,8 +13,8 @@ from kivymd.uix.list import MDList
 from kivy.uix.scatter import Scatter
 from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.uix.tab import MDTabsBase
-
-
+import os
+import threading
 
 class Dynamic_card(MDFloatLayout):
     id = StringProperty()
@@ -32,17 +32,34 @@ class calling_functions(MDScreen):
     list_obj = []
     def __init__(self, *args, **kwargs):
         super(calling_functions, self).__init__(**kwargs)
-        self.no_files = 0
+        
         obj = []
-        for i in range(self.no_files):
-            obj.append(Dynamic_card()) 
-            self.ids.sl_home.add_widget(obj[i])
-        for o in obj:
-            j = 0 
-            o.id = f"{j}"   
-            print(o.id)
-            j = j + 1   
-    
+        self.list_files = os.listdir('Tasks/') # dir is your directory path
+        number_files = len(self.list_files)
+        
+        if number_files == 0:
+            print('None') 
+        else:
+            for i in range(number_files):
+                self.make_task(self.list_files[i])
+                # new_obj.size_hint = [.5,.5]
+                # obj.append(new_obj) 
+                # self.ids.sl_home.add_widget(obj[i])
+            for o in obj:
+                j = 0 
+                o.id = f"{j}"   
+                print(o.id)
+                j = j + 1   
+    def make_task(self,filename):
+        content = open("Tasks/" + filename,"r")
+        self.id_of_obj = "obj_"+ str(self.generate_id())
+        obj = Dynamic_card()
+        obj.id = str(self.id_of_obj)
+        obj.ids.lbl_title.text = filename
+        obj.ids.lbl_body.text = content.read()
+        list_obj.append(obj)
+        print(obj.id)
+        self.ids.sl_home.add_widget(obj)
     def change_screen(self):
         """Change the display screen """
         if self.ids.screen_manager.current == "homescreen":
@@ -58,32 +75,31 @@ class calling_functions(MDScreen):
         """Create object of Dynamic_card class and add it to the Main window """ 
         
         self.ids.screen_manager.current = "homescreen"
-        id_of_obj = "obj_"+ str(self.generate_id())
+        self.id_of_obj = "obj_"+ str(self.generate_id())
         global obj 
         obj = Dynamic_card()
-        obj.id = str(id_of_obj)
-        obj.size_hint = [.5,None]
-        if self.ids.txt_create_body.height <= 100:
-            obj.size_hint = [.5,.1]
-        elif self.ids.txt_create_body.height >=400:
-            obj.size_hint = [.5,.5]
-        else:
-            obj.height = self.ids.txt_create_body.height
+        obj.id = str(self.id_of_obj)
+       
+        # if self.ids.txt_create_body.height <= 100:
+        #     obj.size_hint = [.5,.1]
+        # elif self.ids.txt_create_body.height >=400:
+        #     obj.size_hint = [.5,.5]
+        # else:
+        #     obj.height = self.ids.txt_create_body.height
         obj.ids.lbl_title.text = self.ids.txt_create_title.text
         obj.ids.lbl_body.text = self.ids.txt_create_body.text
         list_obj.append(obj)
         print(obj.id)
         for i in list_obj:
-            i.id=str(id_of_obj)
+            i.id=str(self.id_of_obj)
         
         self.ids.sl_home.add_widget(obj)
         
         self.file_name = self.ids.txt_create_title.text
         self.file_content = self.ids.txt_create_body.text
         
-        f  = open('Tasks/'+ self.ids.txt_create_title.text,'w+')
+        f  = open('Tasks/'+ self.ids.txt_create_title.text + '.txt','w+')
         f.write(self.ids.txt_create_body.text)
-        print(f.tell)
 
         
         self.ids.txt_create_body.text = " "
