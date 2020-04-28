@@ -21,10 +21,9 @@ class Dynamic_card(MDFloatLayout):
     
 
     def delete_task(self):
-        print(obj)
-        print(main_obj.ids.sl_home.ids)
-        # main_obj.ids.sl_home.remove_widget(obj)        
-        main_obj.ids.sl_home.remove_widget(obj)
+        main_obj.ids.sl_home.remove_widget(self)
+        dirs = 'Tasks/'+ str(self.ids.lbl_title.text)
+        os.remove(dirs)
 
 class calling_functions(MDScreen):
     obj_id  = 0 
