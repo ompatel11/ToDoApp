@@ -15,7 +15,10 @@ from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.uix.tab import MDTabsBase
 import os
 import threading
+from android.src.android import permissions
+from android.src.android.storage import app_storage_path
 
+settings_path = app_storage_path()
 class Dynamic_card(MDFloatLayout):
     id = StringProperty()
     
@@ -29,6 +32,7 @@ class calling_functions(MDScreen):
     obj_id  = 0 
     global list_obj 
     list_obj = []
+    
     def __init__(self, *args, **kwargs):
         super(calling_functions, self).__init__(**kwargs)
         
